@@ -1,0 +1,6 @@
+2024/11/01-02:06:34.232 91f Reusing MANIFEST /home/siddharth/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2024/11/01-02:06:34.239 91f Recovering log #4
+2024/11/01-02:06:34.239 91f Reusing old log /home/siddharth/.config/discord/Local Storage/leveldb/000004.log 
+2024/11/01-02:08:23.479 91f Level-0 table #8: started
+2024/11/01-02:08:23.496 91f Level-0 table #8: 2382103 bytes OK
+2024/11/01-02:08:23.498 91f Delete type=0 #4

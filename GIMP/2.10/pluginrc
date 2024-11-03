@@ -38,6 +38,321 @@
         (proc-arg 0 "scales" "Number of scales (1-7)")
         (proc-arg 0 "create-group" "Create a layer group to store the decomposition")
         (proc-arg 0 "create-masks" "Add a layer mask to each scales layers")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/warp/warp" 1
+    (proc-def "plug-in-warp" 1
+         "Twist or smear image in many different ways"
+         "Smears an image along vector paths calculated as the gradient of a separate control matrix. The effect can look like brushstrokes of acrylic or watercolor paint, in some cases."
+         "John P. Beale"
+         "John P. Beale"
+         "1997"
+         "_Warp..."
+         1
+        (menu-path "<Image>/Filters/Map")
+        (icon icon-name -1 "")
+         "RGB*, GRAY*"
+         17 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image (unused)")
+        (proc-arg 16 "drawable" "Input drawable")
+        (proc-arg 3 "amount" "Pixel displacement multiplier")
+        (proc-arg 16 "warp-map" "Displacement control map")
+        (proc-arg 0 "iter" "Iteration count (last required argument)")
+        (proc-arg 3 "dither" "Random dither amount (first optional argument)")
+        (proc-arg 3 "angle" "Angle of gradient vector rotation")
+        (proc-arg 0 "wrap-type" "Edge behavior: { WRAP (0), SMEAR (1), BLACK (2), COLOR (3) }")
+        (proc-arg 16 "mag-map" "Magnitude control map")
+        (proc-arg 0 "mag-use" "Use magnitude map: { FALSE (0), TRUE (1) }")
+        (proc-arg 0 "substeps" "Substeps between image updates")
+        (proc-arg 0 "grad-map" "Gradient control map")
+        (proc-arg 3 "grad-scale" "Scaling factor for gradient map (0=don't use)")
+        (proc-arg 0 "vector-map" "Fixed vector control map")
+        (proc-arg 3 "vector-scale" "Scaling factor for fixed vector map (0=don't use)")
+        (proc-arg 3 "vector-angle" "Angle for fixed vector map")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/van-gogh-lic/van-gogh-lic" 1
+    (proc-def "plug-in-lic" 1
+         "Special effects that nobody understands"
+         "No help yet"
+         "Tom Bech & Federico Mena Quintero"
+         "Tom Bech & Federico Mena Quintero"
+         "Version 0.14, September 24 1997"
+         "_Van Gogh (LIC)..."
+         1
+        (menu-path "<Image>/Filters/Artistic")
+        (icon icon-name -1 "")
+         "RGB*"
+         3 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }")
+        (proc-arg 13 "image" "Input image")
+        (proc-arg 16 "drawable" "Input drawable")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/unit-editor/unit-editor" 1
+    (proc-def "plug-in-unit-editor" 1
+         "Create or alter units used in GIMP"
+         "The GIMP unit editor"
+         "Michael Natterer <mitch@gimp.org>"
+         "Michael Natterer <mitch@gimp.org>"
+         "2000"
+         "U_nits"
+         1
+        (menu-path "<Image>/Edit/Preferences")
+        (icon icon-name -1 "gimp-tool-measure")
+         ""
+         1 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/tile-small/tile-small" 1
+    (proc-def "plug-in-small-tiles" 1
+         "Tile image into smaller versions of the original"
+         "More here later"
+         "Andy Thomas"
+         "Andy Thomas"
+         "1997"
+         "_Small Tiles..."
+         0
+        (icon icon-name -1 "")
+         "RGB*, GRAY*"
+         4 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image (unused)")
+        (proc-arg 16 "drawable" "Input drawable")
+        (proc-arg 0 "num-tiles" "Number of tiles to make")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/tile/tile" 1
+    (proc-def "plug-in-tile" 1
+         "Create an array of copies of the image"
+         "This function creates a new image with a single layer sized to the specified 'new_width' and 'new_height' parameters.  The specified drawable is tiled into this layer.  The new layer will have the same type as the specified drawable and the new image will have a corresponding base type."
+         "Spencer Kimball & Peter Mattis"
+         "Spencer Kimball & Peter Mattis"
+         "1996-1997"
+         "_Tile..."
+         1
+        (menu-path "<Image>/Filters/Map")
+        (icon icon-name -1 "")
+         "RGB*, GRAY*, INDEXED*"
+         6 2
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image (unused)")
+        (proc-arg 16 "drawable" "Input drawable")
+        (proc-arg 0 "new-width" "New (tiled) image width")
+        (proc-arg 0 "new-height" "New (tiled) image height")
+        (proc-arg 0 "new-image" "Create a new image?")
+        (proc-arg 13 "new-image" "Output image (-1 if new-image == FALSE)")
+        (proc-arg 14 "new-layer" "Output layer (-1 if new-image == FALSE)")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/sphere-designer/sphere-designer" 1
+    (proc-def "plug-in-spheredesigner" 1
+         "Create an image of a textured sphere"
+         "This plug-in can be used to create textured and/or bumpmapped spheres, and uses a small lightweight raytracer to perform the task with good quality"
+         "Vidar Madsen"
+         "Vidar Madsen"
+         "1999"
+         "Sphere _Designer..."
+         1
+        (menu-path "<Image>/Filters/Render")
+        (icon icon-name -1 "")
+         "RGB*, GRAY*"
+         3 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image (unused)")
+        (proc-arg 16 "drawable" "Input drawable")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/sparkle/sparkle" 1
+    (proc-def "plug-in-sparkle" 1
+         "Turn bright spots into starry sparkles"
+         "Uses a percentage based luminoisty threhsold to find candidate pixels for adding some sparkles (spikes). "
+         "John Beale, & (ported to GIMP v0.54) Michael J. Hammel & ted to GIMP v1.0) & Seth Burgess & Spencer Kimball"
+         "John Beale"
+         "Version 1.27, September 2003"
+         "_Sparkle..."
+         1
+        (menu-path "<Image>/Filters/Light and Shadow/Light")
+        (icon icon-name -1 "")
+         "RGB*, GRAY*"
+         16 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image (unused)")
+        (proc-arg 16 "drawable" "Input drawable")
+        (proc-arg 3 "lum-threshold" "Luminosity threshold (0.0 - 1.0)")
+        (proc-arg 3 "flare-inten" "Flare intensity (0.0 - 1.0)")
+        (proc-arg 0 "spike-len" "Spike length (in pixels)")
+        (proc-arg 0 "spike-pts" "# of spike points")
+        (proc-arg 0 "spike-angle" "Spike angle (0-360 degrees, -1: random)")
+        (proc-arg 3 "density" "Spike density (0.0 - 1.0)")
+        (proc-arg 3 "transparency" "Transparency (0.0 - 1.0)")
+        (proc-arg 3 "random-hue" "Random hue (0.0 - 1.0)")
+        (proc-arg 3 "random-saturation" "Random saturation (0.0 - 1.0)")
+        (proc-arg 0 "preserve-luminosity" "Preserve luminosity (TRUE/FALSE)")
+        (proc-arg 0 "inverse" "Inverse (TRUE/FALSE)")
+        (proc-arg 0 "border" "Add border (TRUE/FALSE)")
+        (proc-arg 0 "color-type" "Color of sparkles: { NATURAL (0), FOREGROUND (1), BACKGROUND (2) }")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/softglow/softglow" 1
+    (proc-def "plug-in-softglow" 1
+         "Simulate glow by making highlights intense and fuzzy"
+         "Gives an image a softglow effect by intensifying the highlights in the image. This is done by screening a modified version of the drawable with itself. The modified version is desaturated and then a sigmoidal transfer function is applied to force the distribution of intensities into very small and very large only. This desaturated version is then blurred to give it a fuzzy 'vaseline-on-the-lens' effect. The glow radius parameter controls the sharpness of the glow effect. The brightness parameter controls the degree of intensification applied to image highlights. The sharpness parameter controls how defined or alternatively, diffuse, the glow effect should be."
+         "Spencer Kimball"
+         "Bit Specialists, Inc."
+         "2001"
+         "_Softglow (legacy)..."
+         1
+        (menu-path "<Image>/Filters/Artistic")
+        (icon icon-name -1 "")
+         "RGB*, GRAY*"
+         6 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image (unused)")
+        (proc-arg 16 "drawable" "Input drawable")
+        (proc-arg 3 "glow-radius" "Glow radius (radius in pixels)")
+        (proc-arg 3 "brightness" "Glow brightness (0.0 - 1.0)")
+        (proc-arg 3 "sharpness" "Glow sharpness (0.0 - 1.0)")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/smooth-palette/smooth-palette" 1
+    (proc-def "plug-in-smooth-palette" 1
+         "Derive a smooth color palette from the image"
+         "help!"
+         "Scott Draves"
+         "Scott Draves"
+         "1997"
+         "Smoo_th Palette..."
+         1
+        (menu-path "<Image>/Colors/Info")
+        (icon icon-name -1 "")
+         "RGB*"
+         7 2
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image (unused)")
+        (proc-arg 16 "drawable" "Input drawable")
+        (proc-arg 0 "width" "Width")
+        (proc-arg 0 "height" "Height")
+        (proc-arg 0 "ntries" "Search Depth")
+        (proc-arg 0 "show-image" "Show Image?")
+        (proc-arg 13 "new-image" "Output image")
+        (proc-arg 14 "new-layer" "Output layer")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/sharpen/sharpen" 1
+    (proc-def "plug-in-sharpen" 1
+         "Make image sharper (less powerful than Unsharp Mask)"
+         "This plug-in selectively performs a convolution filter on an image."
+         "Michael Sweet <mike@easysw.com>"
+         "Copyright 1997-1998 by Michael Sweet"
+         "1.4.2 - 3 June 1998"
+         "_Sharpen..."
+         0
+        (icon icon-name -1 "")
+         "RGB*, GRAY*"
+         4 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image")
+        (proc-arg 16 "drawable" "Input drawable")
+        (proc-arg 0 "percent" "Percent sharpening (default = 10)")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/selection-to-path/selection-to-path" 1
+    (proc-def "plug-in-sel2path" 1
+         "Converts a selection to a path"
+         "Converts a selection to a path"
+         "Andy Thomas"
+         "Andy Thomas"
+         "1999"
+         ""
+         0
+        (icon icon-name -1 "")
+         "RGB*, INDEXED*, GRAY*"
+         3 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image")
+        (proc-arg 16 "drawable" "Input drawable (unused)"))
+    (proc-def "plug-in-sel2path-advanced" 1
+         "Converts a selection to a path (with advanced user menu)"
+         "Converts a selection to a path (with advanced user menu)"
+         "Andy Thomas"
+         "Andy Thomas"
+         "1999"
+         ""
+         0
+        (icon icon-name -1 "")
+         "RGB*, INDEXED*, GRAY*"
+         23 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
+        (proc-arg 13 "image" "Input image")
+        (proc-arg 16 "drawable" "Input drawable (unused)")
+        (proc-arg 3 "align-threshold" "align_threshold")
+        (proc-arg 3 "corner-always-threshold" "corner_always_threshold")
+        (proc-arg 2 "corner-surround" "corner_surround")
+        (proc-arg 3 "corner-threshold" "corner_threshold")
+        (proc-arg 3 "error-threshold" "error_threshold")
+        (proc-arg 2 "filter-alternative-surround" "filter_alternative_surround")
+        (proc-arg 3 "filter-epsilon" "filter_epsilon")
+        (proc-arg 2 "filter-iteration-count" "filter_iteration_count")
+        (proc-arg 3 "filter-percent" "filter_percent")
+        (proc-arg 2 "filter-secondary-surround" "filter_secondary_surround")
+        (proc-arg 2 "filter-surround" "filter_surround")
+        (proc-arg 2 "keep-knees" "{1-Yes, 0-No}")
+        (proc-arg 3 "line-reversion-threshold" "line_reversion_threshold")
+        (proc-arg 3 "line-threshold" "line_threshold")
+        (proc-arg 3 "reparameterize-improvement" "reparameterize_improvement")
+        (proc-arg 3 "reparameterize-threshold" "reparameterize_threshold")
+        (proc-arg 3 "subdivide-search" "subdivide_search")
+        (proc-arg 2 "subdivide-surround" "subdivide_surround")
+        (proc-arg 3 "subdivide-threshold" "subdivide_threshold")
+        (proc-arg 2 "tangent-surround" "tangent_surround")))
+(plug-in-def "${gimp_plug_in_dir}/plug-ins/script-fu/script-fu" 1
+    (proc-def "extension-script-fu" 2
+         "A scheme interpreter for scripting GIMP operations"
+         "More help here later"
+         "Spencer Kimball & Peter Mattis"
+         "Spencer Kimball & Peter Mattis"
+         "1997"
+         ""
+         0
+        (icon icon-name -1 "")
+         ""
+         0 0)
+    (proc-def "plug-in-script-fu-console" 1
+         "Interactive console for Script-Fu development"
+         "Provides an interface which allows interactive scheme development."
+         "Spencer Kimball & Peter Mattis"
+         "Spencer Kimball & Peter Mattis"
+         "1997"
+         "_Console"
+         1
+        (menu-path "<Image>/Filters/Languages/Script-Fu")
+        (icon icon-name -1 "")
+         ""
+         1 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }"))
+    (proc-def "plug-in-script-fu-text-console" 1
+         "Provides a text console mode for script-fu development"
+         "Provides an interface which allows interactive scheme development."
+         "Spencer Kimball & Peter Mattis"
+         "Spencer Kimball & Peter Mattis"
+         "1997"
+         ""
+         0
+        (icon icon-name -1 "")
+         ""
+         1 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }"))
+    (proc-def "plug-in-script-fu-server" 1
+         "Server for remote Script-Fu operation"
+         "Provides a server for remote script-fu operation. NOTE that for security reasons this procedure's API was changed in an incompatible way since GIMP 2.8.12. You now have to pass the IP to listen on as first parameter. Calling this procedure with the old API will fail on purpose."
+         "Spencer Kimball & Peter Mattis"
+         "Spencer Kimball & Peter Mattis"
+         "1997"
+         "_Start Server..."
+         1
+        (menu-path "<Image>/Filters/Languages/Script-Fu")
+        (icon icon-name -1 "")
+         ""
+         4 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-NONINTERACTIVE (1) }")
+        (proc-arg 4 "ip" "The ip on which to listen for requests")
+        (proc-arg 0 "port" "The port on which to listen for requests")
+        (proc-arg 4 "logfile" "The file to log server activity to"))
+    (proc-def "plug-in-script-fu-eval" 1
+         "Evaluate scheme code"
+         "Evaluate the code under the scheme interpreter (primarily for batch mode)"
+         "Manish Singh"
+         "Manish Singh"
+         "1998"
+         ""
+         0
+        (icon icon-name -1 "")
+         ""
+         2 0
+        (proc-arg 0 "run-mode" "The run mode { RUN-NONINTERACTIVE (1) }")
+        (proc-arg 4 "code" "The code to evaluate"))
+    (locale-def "gimp20-script-fu"))
 (plug-in-def "${gimp_plug_in_dir}/plug-ins/screenshot/screenshot" 1
     (proc-def "plug-in-screenshot" 1
          "Create an image from an area of the screen"
@@ -770,119 +1085,6 @@
         (proc-arg 16 "drawable" "Drawable to export")
         (proc-arg 4 "filename" "The name of the file to export the image in")
         (proc-arg 4 "raw-filename" "The name of the file to export the image in")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/warp/warp" 1
-    (proc-def "plug-in-warp" 1
-         "Twist or smear image in many different ways"
-         "Smears an image along vector paths calculated as the gradient of a separate control matrix. The effect can look like brushstrokes of acrylic or watercolor paint, in some cases."
-         "John P. Beale"
-         "John P. Beale"
-         "1997"
-         "_Warp..."
-         1
-        (menu-path "<Image>/Filters/Map")
-        (icon icon-name -1 "")
-         "RGB*, GRAY*"
-         17 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image (unused)")
-        (proc-arg 16 "drawable" "Input drawable")
-        (proc-arg 3 "amount" "Pixel displacement multiplier")
-        (proc-arg 16 "warp-map" "Displacement control map")
-        (proc-arg 0 "iter" "Iteration count (last required argument)")
-        (proc-arg 3 "dither" "Random dither amount (first optional argument)")
-        (proc-arg 3 "angle" "Angle of gradient vector rotation")
-        (proc-arg 0 "wrap-type" "Edge behavior: { WRAP (0), SMEAR (1), BLACK (2), COLOR (3) }")
-        (proc-arg 16 "mag-map" "Magnitude control map")
-        (proc-arg 0 "mag-use" "Use magnitude map: { FALSE (0), TRUE (1) }")
-        (proc-arg 0 "substeps" "Substeps between image updates")
-        (proc-arg 0 "grad-map" "Gradient control map")
-        (proc-arg 3 "grad-scale" "Scaling factor for gradient map (0=don't use)")
-        (proc-arg 0 "vector-map" "Fixed vector control map")
-        (proc-arg 3 "vector-scale" "Scaling factor for fixed vector map (0=don't use)")
-        (proc-arg 3 "vector-angle" "Angle for fixed vector map")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/van-gogh-lic/van-gogh-lic" 1
-    (proc-def "plug-in-lic" 1
-         "Special effects that nobody understands"
-         "No help yet"
-         "Tom Bech & Federico Mena Quintero"
-         "Tom Bech & Federico Mena Quintero"
-         "Version 0.14, September 24 1997"
-         "_Van Gogh (LIC)..."
-         1
-        (menu-path "<Image>/Filters/Artistic")
-        (icon icon-name -1 "")
-         "RGB*"
-         3 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }")
-        (proc-arg 13 "image" "Input image")
-        (proc-arg 16 "drawable" "Input drawable")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/unit-editor/unit-editor" 1
-    (proc-def "plug-in-unit-editor" 1
-         "Create or alter units used in GIMP"
-         "The GIMP unit editor"
-         "Michael Natterer <mitch@gimp.org>"
-         "Michael Natterer <mitch@gimp.org>"
-         "2000"
-         "U_nits"
-         1
-        (menu-path "<Image>/Edit/Preferences")
-        (icon icon-name -1 "gimp-tool-measure")
-         ""
-         1 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/tile-small/tile-small" 1
-    (proc-def "plug-in-small-tiles" 1
-         "Tile image into smaller versions of the original"
-         "More here later"
-         "Andy Thomas"
-         "Andy Thomas"
-         "1997"
-         "_Small Tiles..."
-         0
-        (icon icon-name -1 "")
-         "RGB*, GRAY*"
-         4 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image (unused)")
-        (proc-arg 16 "drawable" "Input drawable")
-        (proc-arg 0 "num-tiles" "Number of tiles to make")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/tile/tile" 1
-    (proc-def "plug-in-tile" 1
-         "Create an array of copies of the image"
-         "This function creates a new image with a single layer sized to the specified 'new_width' and 'new_height' parameters.  The specified drawable is tiled into this layer.  The new layer will have the same type as the specified drawable and the new image will have a corresponding base type."
-         "Spencer Kimball & Peter Mattis"
-         "Spencer Kimball & Peter Mattis"
-         "1996-1997"
-         "_Tile..."
-         1
-        (menu-path "<Image>/Filters/Map")
-        (icon icon-name -1 "")
-         "RGB*, GRAY*, INDEXED*"
-         6 2
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image (unused)")
-        (proc-arg 16 "drawable" "Input drawable")
-        (proc-arg 0 "new-width" "New (tiled) image width")
-        (proc-arg 0 "new-height" "New (tiled) image height")
-        (proc-arg 0 "new-image" "Create a new image?")
-        (proc-arg 13 "new-image" "Output image (-1 if new-image == FALSE)")
-        (proc-arg 14 "new-layer" "Output layer (-1 if new-image == FALSE)")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/sphere-designer/sphere-designer" 1
-    (proc-def "plug-in-spheredesigner" 1
-         "Create an image of a textured sphere"
-         "This plug-in can be used to create textured and/or bumpmapped spheres, and uses a small lightweight raytracer to perform the task with good quality"
-         "Vidar Madsen"
-         "Vidar Madsen"
-         "1999"
-         "Sphere _Designer..."
-         1
-        (menu-path "<Image>/Filters/Render")
-        (icon icon-name -1 "")
-         "RGB*, GRAY*"
-         3 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image (unused)")
-        (proc-arg 16 "drawable" "Input drawable")))
 (plug-in-def "${gimp_plug_in_dir}/plug-ins/file-xpm/file-xpm" 1
     (proc-def "file-xpm-load" 1
          "Load files in XPM (X11 Pixmap) format."
@@ -1077,159 +1279,6 @@
         (proc-arg 13 "image" "Thumbnail image")
         (proc-arg 0 "image-width" "Width of full-sized image")
         (proc-arg 0 "image-height" "Height of full-sized image")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/script-fu/script-fu" 1
-    (proc-def "extension-script-fu" 2
-         "A scheme interpreter for scripting GIMP operations"
-         "More help here later"
-         "Spencer Kimball & Peter Mattis"
-         "Spencer Kimball & Peter Mattis"
-         "1997"
-         ""
-         0
-        (icon icon-name -1 "")
-         ""
-         0 0)
-    (proc-def "plug-in-script-fu-console" 1
-         "Interactive console for Script-Fu development"
-         "Provides an interface which allows interactive scheme development."
-         "Spencer Kimball & Peter Mattis"
-         "Spencer Kimball & Peter Mattis"
-         "1997"
-         "_Console"
-         1
-        (menu-path "<Image>/Filters/Languages/Script-Fu")
-        (icon icon-name -1 "")
-         ""
-         1 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }"))
-    (proc-def "plug-in-script-fu-text-console" 1
-         "Provides a text console mode for script-fu development"
-         "Provides an interface which allows interactive scheme development."
-         "Spencer Kimball & Peter Mattis"
-         "Spencer Kimball & Peter Mattis"
-         "1997"
-         ""
-         0
-        (icon icon-name -1 "")
-         ""
-         1 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0) }"))
-    (proc-def "plug-in-script-fu-server" 1
-         "Server for remote Script-Fu operation"
-         "Provides a server for remote script-fu operation. NOTE that for security reasons this procedure's API was changed in an incompatible way since GIMP 2.8.12. You now have to pass the IP to listen on as first parameter. Calling this procedure with the old API will fail on purpose."
-         "Spencer Kimball & Peter Mattis"
-         "Spencer Kimball & Peter Mattis"
-         "1997"
-         "_Start Server..."
-         1
-        (menu-path "<Image>/Filters/Languages/Script-Fu")
-        (icon icon-name -1 "")
-         ""
-         4 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-NONINTERACTIVE (1) }")
-        (proc-arg 4 "ip" "The ip on which to listen for requests")
-        (proc-arg 0 "port" "The port on which to listen for requests")
-        (proc-arg 4 "logfile" "The file to log server activity to"))
-    (proc-def "plug-in-script-fu-eval" 1
-         "Evaluate scheme code"
-         "Evaluate the code under the scheme interpreter (primarily for batch mode)"
-         "Manish Singh"
-         "Manish Singh"
-         "1998"
-         ""
-         0
-        (icon icon-name -1 "")
-         ""
-         2 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-NONINTERACTIVE (1) }")
-        (proc-arg 4 "code" "The code to evaluate"))
-    (locale-def "gimp20-script-fu"))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/sparkle/sparkle" 1
-    (proc-def "plug-in-sparkle" 1
-         "Turn bright spots into starry sparkles"
-         "Uses a percentage based luminoisty threhsold to find candidate pixels for adding some sparkles (spikes). "
-         "John Beale, & (ported to GIMP v0.54) Michael J. Hammel & ted to GIMP v1.0) & Seth Burgess & Spencer Kimball"
-         "John Beale"
-         "Version 1.27, September 2003"
-         "_Sparkle..."
-         1
-        (menu-path "<Image>/Filters/Light and Shadow/Light")
-        (icon icon-name -1 "")
-         "RGB*, GRAY*"
-         16 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image (unused)")
-        (proc-arg 16 "drawable" "Input drawable")
-        (proc-arg 3 "lum-threshold" "Luminosity threshold (0.0 - 1.0)")
-        (proc-arg 3 "flare-inten" "Flare intensity (0.0 - 1.0)")
-        (proc-arg 0 "spike-len" "Spike length (in pixels)")
-        (proc-arg 0 "spike-pts" "# of spike points")
-        (proc-arg 0 "spike-angle" "Spike angle (0-360 degrees, -1: random)")
-        (proc-arg 3 "density" "Spike density (0.0 - 1.0)")
-        (proc-arg 3 "transparency" "Transparency (0.0 - 1.0)")
-        (proc-arg 3 "random-hue" "Random hue (0.0 - 1.0)")
-        (proc-arg 3 "random-saturation" "Random saturation (0.0 - 1.0)")
-        (proc-arg 0 "preserve-luminosity" "Preserve luminosity (TRUE/FALSE)")
-        (proc-arg 0 "inverse" "Inverse (TRUE/FALSE)")
-        (proc-arg 0 "border" "Add border (TRUE/FALSE)")
-        (proc-arg 0 "color-type" "Color of sparkles: { NATURAL (0), FOREGROUND (1), BACKGROUND (2) }")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/softglow/softglow" 1
-    (proc-def "plug-in-softglow" 1
-         "Simulate glow by making highlights intense and fuzzy"
-         "Gives an image a softglow effect by intensifying the highlights in the image. This is done by screening a modified version of the drawable with itself. The modified version is desaturated and then a sigmoidal transfer function is applied to force the distribution of intensities into very small and very large only. This desaturated version is then blurred to give it a fuzzy 'vaseline-on-the-lens' effect. The glow radius parameter controls the sharpness of the glow effect. The brightness parameter controls the degree of intensification applied to image highlights. The sharpness parameter controls how defined or alternatively, diffuse, the glow effect should be."
-         "Spencer Kimball"
-         "Bit Specialists, Inc."
-         "2001"
-         "_Softglow (legacy)..."
-         1
-        (menu-path "<Image>/Filters/Artistic")
-        (icon icon-name -1 "")
-         "RGB*, GRAY*"
-         6 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image (unused)")
-        (proc-arg 16 "drawable" "Input drawable")
-        (proc-arg 3 "glow-radius" "Glow radius (radius in pixels)")
-        (proc-arg 3 "brightness" "Glow brightness (0.0 - 1.0)")
-        (proc-arg 3 "sharpness" "Glow sharpness (0.0 - 1.0)")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/smooth-palette/smooth-palette" 1
-    (proc-def "plug-in-smooth-palette" 1
-         "Derive a smooth color palette from the image"
-         "help!"
-         "Scott Draves"
-         "Scott Draves"
-         "1997"
-         "Smoo_th Palette..."
-         1
-        (menu-path "<Image>/Colors/Info")
-        (icon icon-name -1 "")
-         "RGB*"
-         7 2
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image (unused)")
-        (proc-arg 16 "drawable" "Input drawable")
-        (proc-arg 0 "width" "Width")
-        (proc-arg 0 "height" "Height")
-        (proc-arg 0 "ntries" "Search Depth")
-        (proc-arg 0 "show-image" "Show Image?")
-        (proc-arg 13 "new-image" "Output image")
-        (proc-arg 14 "new-layer" "Output layer")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/sharpen/sharpen" 1
-    (proc-def "plug-in-sharpen" 1
-         "Make image sharper (less powerful than Unsharp Mask)"
-         "This plug-in selectively performs a convolution filter on an image."
-         "Michael Sweet <mike@easysw.com>"
-         "Copyright 1997-1998 by Michael Sweet"
-         "1.4.2 - 3 June 1998"
-         "_Sharpen..."
-         0
-        (icon icon-name -1 "")
-         "RGB*, GRAY*"
-         4 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image")
-        (proc-arg 16 "drawable" "Input drawable")
-        (proc-arg 0 "percent" "Percent sharpening (default = 10)")))
 (plug-in-def "${gimp_plug_in_dir}/plug-ins/file-webp/file-webp" 1
     (proc-def "file-webp-load" 1
          "Loads images in the WebP file format"
@@ -3131,8 +3180,6 @@
         (proc-arg 16 "drawable" "Drawable to export")
         (proc-arg 4 "filename" "The name of the file to export the image in")
         (proc-arg 4 "raw-filename" "The name of the file to export the image in")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/file-heif/file-heif" 1
-    (has-init))
 (plug-in-def "${gimp_plug_in_dir}/plug-ins/file-header/file-header" 1
     (proc-def "file-header-save" 1
          "saves files as C unsigned character array"
@@ -3946,55 +3993,6 @@
         (proc-arg 3 "outer" "Radius of outer gaussian blur (in pixels, > 0.0)")
         (proc-arg 0 "normalize" "Normalize { TRUE, FALSE }")
         (proc-arg 0 "invert" "Invert { TRUE, FALSE }")))
-(plug-in-def "${gimp_plug_in_dir}/plug-ins/selection-to-path/selection-to-path" 1
-    (proc-def "plug-in-sel2path" 1
-         "Converts a selection to a path"
-         "Converts a selection to a path"
-         "Andy Thomas"
-         "Andy Thomas"
-         "1999"
-         ""
-         0
-        (icon icon-name -1 "")
-         "RGB*, INDEXED*, GRAY*"
-         3 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image")
-        (proc-arg 16 "drawable" "Input drawable (unused)"))
-    (proc-def "plug-in-sel2path-advanced" 1
-         "Converts a selection to a path (with advanced user menu)"
-         "Converts a selection to a path (with advanced user menu)"
-         "Andy Thomas"
-         "Andy Thomas"
-         "1999"
-         ""
-         0
-        (icon icon-name -1 "")
-         "RGB*, INDEXED*, GRAY*"
-         23 0
-        (proc-arg 0 "run-mode" "The run mode { RUN-INTERACTIVE (0), RUN-NONINTERACTIVE (1) }")
-        (proc-arg 13 "image" "Input image")
-        (proc-arg 16 "drawable" "Input drawable (unused)")
-        (proc-arg 3 "align-threshold" "align_threshold")
-        (proc-arg 3 "corner-always-threshold" "corner_always_threshold")
-        (proc-arg 2 "corner-surround" "corner_surround")
-        (proc-arg 3 "corner-threshold" "corner_threshold")
-        (proc-arg 3 "error-threshold" "error_threshold")
-        (proc-arg 2 "filter-alternative-surround" "filter_alternative_surround")
-        (proc-arg 3 "filter-epsilon" "filter_epsilon")
-        (proc-arg 2 "filter-iteration-count" "filter_iteration_count")
-        (proc-arg 3 "filter-percent" "filter_percent")
-        (proc-arg 2 "filter-secondary-surround" "filter_secondary_surround")
-        (proc-arg 2 "filter-surround" "filter_surround")
-        (proc-arg 2 "keep-knees" "{1-Yes, 0-No}")
-        (proc-arg 3 "line-reversion-threshold" "line_reversion_threshold")
-        (proc-arg 3 "line-threshold" "line_threshold")
-        (proc-arg 3 "reparameterize-improvement" "reparameterize_improvement")
-        (proc-arg 3 "reparameterize-threshold" "reparameterize_threshold")
-        (proc-arg 3 "subdivide-search" "subdivide_search")
-        (proc-arg 2 "subdivide-surround" "subdivide_surround")
-        (proc-arg 3 "subdivide-threshold" "subdivide_threshold")
-        (proc-arg 2 "tangent-surround" "tangent_surround")))
 (plug-in-def "${gimp_plug_in_dir}/plug-ins/destripe/destripe" 1
     (proc-def "plug-in-destripe" 1
          "Remove vertical stripe artifacts from the image"
